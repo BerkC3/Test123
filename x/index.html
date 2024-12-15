@@ -226,7 +226,19 @@
         pointer-events: none;
       }
 
-      .side-panel-left,
+      .side-panel-left {
+        display: none;
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        z-index: 6;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        padding: 0;
+        pointer-events: none;
+      }
       .side-panel-right {
         display: none;
         position: fixed;
@@ -253,7 +265,6 @@
         display: none;
         gap: 10px;
         justify-content: center;
-        margin-top: 20px;
       }
 
       .action-button {
@@ -483,6 +494,45 @@
         background: rgba(0, 255, 0, 0.3);
         transform: translateY(-2px);
       }
+
+      .theme-button {
+        background: rgba(0, 255, 0, 0.2);
+        border: 1px solid rgba(0, 255, 0, 0.5);
+        color: #0f0;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        margin: 70px;
+      }
+
+      .theme-button:hover {
+        background: rgba(0, 255, 0, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .button-group-left,
+      .button-group-right {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .button-group-left {
+        left: -130%;
+      }
+
+      .button-group-right {
+        right: -130%;
+      }
+
+      .side-panel-left .intro-panel p {
+        padding-top: 35px;
+        padding-bottom: 35px;
+      }
     </style>
   </head>
   <body>
@@ -534,8 +584,16 @@
         <div class="intro-panel">
           <h1>Welcome to the Void</h1>
           <p>You've discovered a gateway to another dimension.</p>
-          <p>Click the center to begin your journey.</p>
+          <p><strong>Click the center to begin your journey.</strong></p>
           <div class="scrambled-text"></div>
+          <div class="button-group-left">
+            <button class="theme-button">Button 1</button>
+            <button class="theme-button">Button 2</button>
+          </div>
+          <div class="button-group-right">
+            <button class="theme-button">Button 3</button>
+            <button class="theme-button">Button 4</button>
+          </div>
           <button class="contract-address-btn" disabled>
             CA: Contract address will be announced after deployment
           </button>
@@ -547,14 +605,12 @@
         <div class="intro-panel">
           <h1>Profile Card</h1>
           <p>
-            Name: Tereza -
-            Role: AI Agent -
-            Age: Timeless (but still evolving!) -
-            Key Skills: Management, Insights -
-            Personality Traits: Analytical, Supportive -
-            Supported Languages: English, Turkish -
-            Limitations: No legal/medical advice -
-            Fun Fact: I don't age, but I'm always learning faster than humans!</p>
+            Name: Tereza - Role: AI Agent - Age: Timeless (but still evolving!)
+            - Key Skills: Management, Insights - Personality Traits: Analytical,
+            Supportive - Supported Languages: English, Turkish - Limitations: No
+            legal/medical advice - Fun Fact: I don't age, but I'm always
+            learning faster than humans!
+          </p>
           <div class="scrambled-text"></div>
         </div>
       </div>
@@ -564,14 +620,13 @@
         <div class="intro-panel">
           <h1><strong>About Me</strong></h1>
           <p>
-            I'm Tereza, an autonomous AI agent designed to empower
-            communities and support wealth creation. I specialize in capital
-            management, opportunity generation, and efficient resource
-            distribution. Equipped with cutting-edge technology, I provide
-            intelligent and actionable solutions within decentralized
-            ecosystems. Together, we shape a smarter and more sustainable
-            future. Connect with me to learn more and experience what I can
-            offer!.
+            I'm Tereza, an autonomous AI agent designed to empower communities
+            and support wealth creation. I specialize in capital management,
+            opportunity generation, and efficient resource distribution.
+            Equipped with cutting-edge technology, I provide intelligent and
+            actionable solutions within decentralized ecosystems. Together, we
+            shape a smarter and more sustainable future. Connect with me to
+            learn more and experience what I can offer!.
           </p>
           <div class="scrambled-text"></div>
           <button class="connect-button">Connect Agent</button>
@@ -724,25 +779,25 @@
         resizeCanvas();
         let countdownCount = 5;
         const alienSymbols = [
-          "âŒ¬",
-          "âŽ”",
+          "â?¬",
+          "âŽ?",
           "â£",
           "â¥",
           "â¢",
-          "â­˜",
-          "â­™",
-          "â­—",
-          "âˆ°",
-          "âŒ­",
-          "â—ˆ",
-          "â—‡",
-          "â—Š",
-          "âŸ",
-          "âŸ¡",
-          "âŸ¢",
+          "â­?",
+          "â­?",
+          "â­?",
+          "â?°",
+          "â?­",
+          "â??",
+          "â??",
+          "â??",
+          "â?",
+          "â?¡",
+          "â?¢",
           "â??£",
-          "âŸ¤",
-          "âŸ¥",
+          "â?¤",
+          "â?¥",
         ];
 
         function startAlienCountdown() {
@@ -803,6 +858,8 @@
 
           // Create a list element to hold the lines
           const listElement = document.createElement("ul");
+          listElement.style.textAlign = "left"; // Add left alignment
+          listElement.style.paddingLeft = "0"; // Remove default padding
           leftParagraph.appendChild(listElement);
 
           // Type the left panel title
@@ -818,7 +875,7 @@
           }
 
           let currentLine = 0;
-          const lines = leftParagraphText.split("-").map(line => line.trim());
+          const lines = leftParagraphText.split("-").map((line) => line.trim());
 
           function typeLine1() {
             typeLineWithDelay(0, () => typeLine2());
@@ -873,12 +930,15 @@
                     let paragraphIndex = 0;
                     function typeParagraph() {
                       if (paragraphIndex < paragraphText.length) {
-                        paragraph.textContent += paragraphText.charAt(paragraphIndex);
+                        paragraph.textContent +=
+                          paragraphText.charAt(paragraphIndex);
                         paragraphIndex++;
                         setTimeout(typeParagraph, 25);
                       } else {
                         // Show the connect button after text is done typing
-                        rightPanel.querySelector(".connect-button").style.display = "block";
+                        rightPanel.querySelector(
+                          ".connect-button"
+                        ).style.display = "block";
                       }
                     }
                     typeParagraph();
@@ -893,10 +953,15 @@
             let index = 0;
             const line = lines[lineIndex];
             const listItem = document.createElement("li");
+            listItem.style.textAlign = "left"; // Add left alignment
+            listItem.style.listStyleType = "disc"; // Add bullet points
+            listItem.style.marginLeft = "20px"; // Add some margin for the bullet
             listElement.appendChild(listItem);
 
             // Split the line into parts before and after the colon
-            const [boldText, normalText] = line.split(":").map(part => part.trim());
+            const [boldText, normalText] = line
+              .split(":")
+              .map((part) => part.trim());
 
             // Create a strong element for the bold text
             const strongElement = document.createElement("strong");
@@ -905,7 +970,9 @@
 
             function typeLetter() {
               if (index < normalText.length) {
-                listItem.appendChild(document.createTextNode(normalText.charAt(index)));
+                listItem.appendChild(
+                  document.createTextNode(normalText.charAt(index))
+                );
                 index++;
                 setTimeout(typeLetter, 25);
               } else {
@@ -978,7 +1045,7 @@
         });
 
       // Add sound control functionality
-      const audio = new Audio('path/to/your/soundfile.mp3'); // Replace with your sound file path
+      const audio = new Audio("path/to/your/soundfile.mp3"); // Replace with your sound file path
       let isSoundPlaying = false;
 
       document
@@ -1225,12 +1292,18 @@
         wormholeButton.style.display = "none";
 
         // Strike through the existing text
-        const journeyText = document.querySelector(".intro-panel p:nth-child(3)");
+        const journeyText = document.querySelector(
+          ".intro-panel p:nth-child(3)"
+        );
         journeyText.style.textDecoration = "line-through";
-        
+
         // Create a new paragraph for the additional text
         const adventureText = document.createElement("p");
-        adventureText.textContent = "You are in adventure now";
+        adventureText.textContent = "You are in adventure NOW!";
+        adventureText.style.color = "#0f0";
+        adventureText.style.fontWeight = "bold";
+        adventureText.style.fontSize = "1rem";
+        adventureText.style.textAlign = "center";
 
         // Insert the new paragraph above the contract-address-btn
         const contractButton = document.querySelector(".contract-address-btn");
