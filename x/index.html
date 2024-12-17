@@ -533,6 +533,20 @@
         padding-top: 35px;
         padding-bottom: 35px;
       }
+
+      .twitter-button {
+        background: url('assets/twitter-logo.svg') no-repeat center center;
+        background-size: contain;
+        width: 50px; /* Adjust size as needed */
+        height: 50px; /* Adjust size as needed */
+        border: none; /* Remove border */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .twitter-button:hover {
+        transform: scale(1.1); /* Slightly enlarge on hover */
+      }
     </style>
   </head>
   <body>
@@ -576,7 +590,7 @@
       -->
     </div>
     <canvas id="canvas"></canvas>
-    <img id="centerImage" src="12345.png" alt="AI Center" />
+    <img id="centerImage" src="/assets/12345.png" alt="AI Center" />
     <div class="voice-status"></div>
     <button id="wormhole-button" aria-label="Enter wormhole"></button>
     <div class="popup-overlay" id="popup">
@@ -587,11 +601,11 @@
           <p><strong>Click the Fytch to begin your journey.</strong></p>
           <div class="scrambled-text"></div>
           <div class="button-group-left">
-            <button class="theme-button">Button 1</button>
-            <button class="theme-button">Button 2</button>
+            <button class="theme-button">X (Twitter)</button>
+            <button class="theme-button">GitHub</button>
           </div>
           <div class="button-group-right">
-            <button class="theme-button">Button 3</button>
+            <button class="theme-button">Docs</button>
             <button class="theme-button">Button 4</button>
           </div>
           <button class="contract-address-btn" onclick="window.open('https://pump.fun', '_blank')">
@@ -778,7 +792,6 @@
           "Scanning parallel universes",
           "Dimensional gateway detected",
           "Establishing connection",
-          "You found a dimension!"
         ];
         
         let currentMessageIndex = 0;
@@ -797,9 +810,9 @@
               dots += ".";
               countdownElement.textContent = messages[currentMessageIndex - 1] + dots;
               dotCount++;
-              if (dotCount === 3) {
+              if (dotCount === 2) {
                 clearInterval(dotAnimation);
-                setTimeout(showDimensionSearch, 1000);
+                setTimeout(showDimensionSearch, 500);
               }
             }, 300);
           } else {
