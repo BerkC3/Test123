@@ -82,9 +82,10 @@
         pointer-events: none;
         z-index: 9999;
         mix-blend-mode: difference;
-        color: white;
+        color: #0f0;
         transform: translate(-50%, -50%);
         display: none;
+        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
       }
 
       .popup-overlay {
@@ -605,7 +606,7 @@
             <button class="theme-button">GitHub</button>
           </div>
           <div class="button-group-right">
-            <button class="theme-button">Docs</button>
+            <button class="theme-button" onclick="window.open('https://fytch.gitbook.io/fytch', '_blank')">Docs</button>
             <button class="theme-button">Button 4</button>
           </div>
           <button class="contract-address-btn" onclick="window.open('https://pump.fun', '_blank')">
@@ -774,6 +775,7 @@
         cursor.style.display = "block";
         cursor.style.left = e.clientX + "px";
         cursor.style.top = e.clientY + "px";
+        cursor.textContent = "Click to begin journey";
       });
 
       wormholeButton.addEventListener("mouseleave", () => {
@@ -1295,6 +1297,10 @@
 
         // Slow down the animation
         particleSpeedFactor = 0.3; // Reduce speed by half
+
+        // Revert to default cursor
+        document.body.style.cursor = "default";
+        cursor.style.display = "none"; // Hide custom cursor
 
         // Hide the button after the first click
         wormholeButton.style.display = "none";
