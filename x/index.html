@@ -943,21 +943,18 @@
                   if (titleIndex < titleText.length) {
                     title.textContent += titleText.charAt(titleIndex);
                     titleIndex++;
-                    setTimeout(typeTitle, 20);
+                    setTimeout(typeTitle, 10);
                   } else {
                     // Start typing paragraph after title is done
                     let paragraphIndex = 0;
                     function typeParagraph() {
                       if (paragraphIndex < paragraphText.length) {
-                        paragraph.textContent +=
-                          paragraphText.charAt(paragraphIndex);
+                        paragraph.textContent += paragraphText.charAt(paragraphIndex);
                         paragraphIndex++;
-                        setTimeout(typeParagraph, 20);
+                        setTimeout(typeParagraph, 10);
                       } else {
                         // Show the connect button after text is done typing
-                        rightPanel.querySelector(
-                          ".connect-button"
-                        ).style.display = "block";
+                        rightPanel.querySelector(".connect-button").style.display = "block";
                       }
                     }
                     typeParagraph();
@@ -1310,7 +1307,7 @@
         startJumpSequence(); // Call the function you want to trigger on click
 
         // Slow down the animation
-        particleSpeedFactor = 0.3; // Reduce speed by half
+        particleSpeedFactor = 0.4; // Reduce speed by half
 
         // Hide the button after the first click
         wormholeButton.style.display = "none";
