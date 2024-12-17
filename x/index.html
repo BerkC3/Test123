@@ -1091,31 +1091,37 @@
           if (mutation.type === "childList") {
             mutation.addedNodes.forEach((node) => {
               if (node.classList && node.classList.contains("ai-message")) {
-                // Replace any mention of 'Tereza' with 'Agent'
-                if (node.textContent.includes("Tereza")) {
+                if (node.textContent.toLowerCase().includes("tereza")) {
                   node.textContent = node.textContent.replace(
-                    /Tereza/g,
-                    "Agent"
+                    /tereza/gi,
+                    "Fytch"
                   );
                 }
-                if (node.textContent.includes("Tereza.AI")) {
+                if (node.textContent.toLowerCase().includes("tereza.ai")) {
                   node.textContent = node.textContent.replace(
-                    /Tereza.AI/g,
-                    "Agent.AI"
+                    /tereza\.ai/gi,
+                    "Fytch.AI"
                   );
                 }
-                if (node.textContent.includes("@aleks_blanche")) {
+                if (node.textContent.toLowerCase().includes("@aleks_blanche")) {
                   node.textContent = node.textContent.replace(
-                    /@aleks_blanche/g,
-                    "@agent_31"
+                    /@aleks_blanche/gi,
+                    "@void"
                   );
                 }
-                if (node.textContent.includes("$TEREZA")) {
+                if (node.textContent.toLowerCase().includes("$tereza")) {
                   node.textContent = node.textContent.replace(
-                    /$TEREZA/g,
-                    "$AGENT"
+                    /\$tereza/gi,
+                    "$FYTCH"
                   );
                 }
+                if (node.textContent.toLowerCase().includes("$#WAGMI")) {
+                  node.textContent = node.textContent.replace(
+                    /\$#WAGMI/gi,
+                    "$FYTCH"
+                  );
+                }
+                
                 // Add more text replacements as needed
               }
             });
