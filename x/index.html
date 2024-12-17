@@ -602,12 +602,12 @@
           <p><strong>Click the Fytch to begin your journey.</strong></p>
           <div class="scrambled-text"></div>
           <div class="button-group-left">
-            <button class="theme-button">X (Twitter)</button>
-            <button class="theme-button">GitHub</button>
+            <button class="theme-button" onclick="window.open('https://x.com/FytchAI', '_blank')">X (Twitter)</button>
+            <button class="theme-button" onclick="window.open('https://github.com/FytchAI/FytchAI', '_blank')">GitHub</button>
           </div>
           <div class="button-group-right">
             <button class="theme-button" onclick="window.open('https://fytch.gitbook.io/fytch', '_blank')">Docs</button>
-            <button class="theme-button">Button 4</button>
+            <button class="theme-button">DEX(Soon)</button>
           </div>
           <button class="contract-address-btn" onclick="window.open('https://pump.fun', '_blank')">
             CA: Contract address will be announced after deployment
@@ -654,7 +654,7 @@
 
     <div class="chat-window">
       <div class="chat-header">
-        <h3>Agent Fytch</h3>
+        <h3>Agent Fytch (Minimize the window to talk)</h3>
         <div class="chat-controls">
           <button class="minimize-btn">-</button>
           <button class="close-btn">X</button>
@@ -1147,20 +1147,35 @@
       });
 
       // Minimize functionality
-      document
-        .querySelector(".minimize-btn")
-        .addEventListener("click", function (e) {
-          e.stopPropagation();
-          document.querySelector(".chat-window").classList.toggle("minimized");
-        });
+      const chatWindow = document.querySelector(".chat-window");
+      const chatHeader = document.querySelector(".chat-header");
+      const chatTitle = chatHeader.querySelector("h3");
+
+      chatHeader.addEventListener("click", function (e) {
+        e.stopPropagation();
+        chatWindow.classList.toggle("minimized");
+
+        // Update the title based on the chat window state
+        if (chatWindow.classList.contains("minimized")) {
+          chatTitle.textContent = "Agent Fytch";
+        } else {
+          chatTitle.textContent = "Agent Fytch (Minimize the window to talk)";
+        }
+      });
+
+      // Add click event to the minimized chat window to expand it
+      chatWindow.addEventListener("click", function (e) {
+        if (chatWindow.classList.contains("minimized")) {
+          chatWindow.classList.remove("minimized");
+          chatTitle.textContent = "Agent Fytch (Minimize the window to talk)";
+        }
+      });
 
       // Close functionality
-      document
-        .querySelector(".close-btn")
-        .addEventListener("click", function (e) {
-          e.stopPropagation();
-          document.querySelector(".chat-window").style.display = "none";
-        });
+      document.querySelector(".close-btn").addEventListener("click", function (e) {
+        e.stopPropagation();
+        chatWindow.style.display = "none";
+      });
 
       // Send message functionality
       async function sendMessage() {
@@ -1245,16 +1260,19 @@
           color: "#0f0",
           type: "round",
           icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg",
+          location: "bottom-right",
         },
         loading: {
           color: "#0f0",
           type: "round",
           icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg",
+          location: "bottom-right",
         },
         active: {
           color: "#ff0000",
           type: "round",
           icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg",
+          location: "bottom-right",
         },
       };
 
