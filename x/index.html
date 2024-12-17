@@ -64,8 +64,8 @@
 
       #wormhole-button {
         position: fixed;
-        width: 100px;
-        height: 100px;
+        width: 300px;
+        height: 300px;
         border-radius: 50%;
         background: transparent;
         border: none;
@@ -643,7 +643,7 @@
             learn more and experience what I can offer!.
           </p>
           <div class="scrambled-text"></div>
-          <button class="connect-button">Connect Agent</button>
+          <button class="connect-button">Connect Fytch</button>
           <div class="action-buttons-container">
             <button class="action-button">Chat</button>
             <button class="action-button">Talk</button>
@@ -683,6 +683,10 @@
       let currentThreadId = null;
 
       let particleSpeedFactor = 1; // Add this variable to control speed
+
+      // Move these variables to the top with other global variables
+      const audio = new Audio("assets/void.mp3");
+      let isSoundPlaying = false;
 
       // Initialize particles
       function createParticle() {
@@ -786,6 +790,22 @@
       function init() {
         cleanup(); // Cleanup before initializing
         resizeCanvas();
+        
+        // Start audio immediately
+        audio.loop = true;
+        audio.volume = 0.3;  // Changed from 1.0 to 0.5 (50% volume)
+        audio.play().catch(e => {
+          console.log("Audio autoplay failed:", e);
+          // If autoplay fails, we'll try again on first user interaction
+          document.addEventListener('click', function initAudio() {
+            audio.play();
+            isSoundPlaying = true;
+            document.getElementById("sound-control").textContent = "Stop Sound";
+            document.removeEventListener('click', initAudio);
+          }, { once: true });
+        });
+        isSoundPlaying = true;
+        document.getElementById("sound-control").textContent = "Stop Sound";
         
         const messages = [
           "Looking for a new dimension",
@@ -1043,10 +1063,7 @@
           }
         });
 
-      // Add sound control functionality
-      const audio = new Audio("path/to/your/soundfile.mp3"); // Replace with your sound file path
-      let isSoundPlaying = false;
-
+      // Modify sound control functionality
       document
         .getElementById("sound-control")
         .addEventListener("click", function () {
