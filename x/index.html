@@ -263,7 +263,7 @@
       }
 
       .action-buttons-container {
-        display: none;
+        display: flex;
         gap: 10px;
         justify-content: center;
       }
@@ -619,13 +619,16 @@
       <div class="popup-content">
         <div class="intro-panel">
           <h1>Profile Card</h1>
-          <p>
-            Name: Fytch - Role: AI Agent - Age: Timeless (but still evolving!)
-            - Key Skills: Management, Insights - Personality Traits: Analytical,
-            Supportive - Supported Languages: English - Limitations: No
-            legal/medical advice - Fun Fact: I don't age, but I'm always
-            learning faster than humans!
-          </p>
+          <ul style="list-style-type: disc; padding-left: 20px; font-family: monospace; text-align: left; font-size: 1.3rem;">
+            <li>Name: Fytch</li>
+            <li>Role: AI Agent</li>
+            <li>Age: Timeless (but still evolving!)</li>
+            <li>Key Skills: Management, Insights</li>
+            <li>Personality Traits: Analytical, Supportive</li>
+            <li>Supported Languages: English</li>
+            <li>Limitations: No legal/medical advice</li>
+            <li>Fun Fact: I don't age, but I'm always learning faster than humans!</li>
+          </ul>
           <div class="scrambled-text"></div>
         </div>
       </div>
@@ -641,10 +644,10 @@
             Equipped with cutting-edge technology, I provide intelligent and
             actionable solutions within decentralized ecosystems. Together, we
             shape a smarter and more sustainable future. Connect with me to
-            learn more and experience what I can offer!.
+            learn more and experience what I can offer!
           </p>
           <div class="scrambled-text"></div>
-          <div class="action-buttons-container" style="display: none;">
+          <div class="action-buttons-container">
             <button class="action-button">Chat</button>
             <button class="action-button">Talk</button>
           </div>
@@ -831,9 +834,9 @@
               dots += ".";
               countdownElement.textContent = messages[currentMessageIndex - 1] + dots;
               dotCount++;
-              if (dotCount === 2) {
+              if (dotCount === 1) {
                 clearInterval(dotAnimation);
-                setTimeout(showDimensionSearch, 500);
+                setTimeout(showDimensionSearch, 100);
               }
             }, 300);
           } else {
@@ -848,6 +851,10 @@
         }
 
         showDimensionSearch();
+
+        // Show left and right panels immediately
+        document.querySelector(".side-panel-left").style.display = "flex";
+        document.querySelector(".side-panel-right").style.display = "flex";
 
         // Add error handling
         window.addEventListener("error", (e) => {
@@ -864,144 +871,7 @@
         const popup = document.getElementById("popup");
         const wormholeButton = document.getElementById("wormhole-button");
 
-        if (wormholeButton.contains(e.target)) {
-          startJumpSequence();
-          // Show left panel with typewriter effect
-          const leftPanel = document.querySelector(".side-panel-left");
-          leftPanel.style.display = "flex";
-          const leftTitle = leftPanel.querySelector("h1");
-          const leftParagraph = leftPanel.querySelector("p");
-          const leftTitleText = leftTitle.textContent;
-          const leftParagraphText = leftParagraph.textContent;
-          leftTitle.textContent = "";
-          leftParagraph.textContent = "";
-
-          // Create a list element to hold the lines
-          const listElement = document.createElement("ul");
-          listElement.style.textAlign = "left"; // Add left alignment
-          listElement.style.paddingLeft = "0"; // Remove default padding
-          leftParagraph.appendChild(listElement);
-
-          // Type the left panel title
-          let leftTitleIndex = 0;
-          function typeLeftTitle() {
-            if (leftTitleIndex < leftTitleText.length) {
-              leftTitle.textContent += leftTitleText.charAt(leftTitleIndex);
-              leftTitleIndex++;
-              setTimeout(typeLeftTitle, 20);
-            } else {
-              typeLine1();
-            }
-          }
-
-          let currentLine = 0;
-          const lines = leftParagraphText.split("-").map((line) => line.trim());
-
-          function typeLine1() {
-            typeLineWithDelay(0, () => typeLine2());
-          }
-
-          function typeLine2() {
-            typeLineWithDelay(1, () => typeLine3());
-          }
-
-          function typeLine3() {
-            typeLineWithDelay(2, () => typeLine4());
-          }
-
-          function typeLine4() {
-            typeLineWithDelay(3, () => typeLine5());
-          }
-
-          function typeLine5() {
-            typeLineWithDelay(4, () => typeLine6());
-          }
-
-          function typeLine6() {
-            typeLineWithDelay(5, () => typeLine7());
-          }
-
-          function typeLine7() {
-            typeLineWithDelay(6, () => typeLine8());
-          }
-
-          function typeLine8() {
-            typeLineWithDelay(7, () => {
-              // Start right panel after all lines are typed
-              setTimeout(() => {
-                const rightPanel = document.querySelector(".side-panel-right");
-                rightPanel.style.display = "flex";
-                const title = rightPanel.querySelector("h1");
-                const paragraph = rightPanel.querySelector("p");
-                const titleText = title.textContent;
-                const paragraphText = paragraph.textContent;
-                title.textContent = "";
-                paragraph.textContent = "";
-
-                // Type the title first
-                let titleIndex = 0;
-                function typeTitle() {
-                  if (titleIndex < titleText.length) {
-                    title.textContent += titleText.charAt(titleIndex);
-                    titleIndex++;
-                    setTimeout(typeTitle, 10);
-                  } else {
-                    // Start typing paragraph after title is done
-                    let paragraphIndex = 0;
-                    function typeParagraph() {
-                      if (paragraphIndex < paragraphText.length) {
-                        paragraph.textContent += paragraphText.charAt(paragraphIndex);
-                        paragraphIndex++;
-                        setTimeout(typeParagraph, 10);
-                      } else {
-                        // Show the action buttons after text is done typing
-                        rightPanel.querySelector(".action-buttons-container").style.display = "flex";
-                      }
-                    }
-                    typeParagraph();
-                  }
-                }
-                typeTitle();
-              }, 1200);
-            });
-          }
-
-          function typeLineWithDelay(lineIndex, callback) {
-            let index = 0;
-            const line = lines[lineIndex];
-            const listItem = document.createElement("li");
-            listItem.style.textAlign = "left"; // Add left alignment
-            listItem.style.listStyleType = "disc"; // Add bullet points
-            listItem.style.marginLeft = "20px"; // Add some margin for the bullet
-            listElement.appendChild(listItem);
-
-            // Split the line into parts before and after the colon
-            const [boldText, normalText] = line
-              .split(":")
-              .map((part) => part.trim());
-
-            // Create a strong element for the bold text
-            const strongElement = document.createElement("strong");
-            strongElement.textContent = boldText + ": ";
-            listItem.appendChild(strongElement);
-
-            function typeLetter() {
-              if (index < normalText.length) {
-                listItem.appendChild(
-                  document.createTextNode(normalText.charAt(index))
-                );
-                index++;
-                setTimeout(typeLetter, 20);
-              } else {
-                callback();
-              }
-            }
-            typeLetter();
-          }
-
-          // Start the typing sequence
-          typeLeftTitle();
-        }
+        
       });
 
       // Move animation cleanup to beforeunload only
@@ -1311,8 +1181,6 @@
 
       // Add a one-time click event listener to the wormhole button
       wormholeButton.addEventListener("click", function handleWormholeClick() {
-        startJumpSequence(); // Call the function you want to trigger on click
-
         // Slow down the animation
         particleSpeedFactor = 0.3; // Reduce speed by half
 
@@ -1324,9 +1192,7 @@
         wormholeButton.style.display = "none";
 
         // Strike through the existing text
-        const journeyText = document.querySelector(
-          ".intro-panel p:nth-child(3)"
-        );
+        const journeyText = document.querySelector(".intro-panel p:nth-child(3)");
         journeyText.style.textDecoration = "line-through";
 
         // Create a new paragraph for the additional text
@@ -1337,9 +1203,8 @@
         adventureText.style.fontSize = "1rem";
         adventureText.style.textAlign = "center";
 
-        // Insert the new paragraph above the contract-address-btn
-        const contractButton = document.querySelector(".contract-address-btn");
-        contractButton.parentNode.insertBefore(adventureText, contractButton);
+        // Insert the new paragraph below the existing text
+        journeyText.parentNode.insertBefore(adventureText, journeyText.nextSibling);
       });
     </script>
   </body>
