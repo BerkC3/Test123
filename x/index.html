@@ -10,7 +10,7 @@
         margin: 0;
         padding: 0;
         background-color: #000000;
-        color: #fff;
+        color: #FFD700;
         font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
@@ -42,23 +42,23 @@
       #alien-countdown {
         font-family: monospace;
         font-size: 5rem;
-        color: #0f0;
-        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+        color: #FFD700;
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
         animation: pulse 0.5s infinite;
       }
 
       @keyframes pulse {
         0% {
           opacity: 0.5;
-          text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+          text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
         }
         50% {
           opacity: 1;
-          text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0;
+          text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
         }
         100% {
           opacity: 0.5;
-          text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+          text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
         }
       }
 
@@ -82,10 +82,10 @@
         pointer-events: none;
         z-index: 9999;
         mix-blend-mode: difference;
-        color: #0f0;
+        color: #FFD700;
         transform: translate(-50%, -50%);
         display: none;
-        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
       }
 
       .popup-overlay {
@@ -105,11 +105,11 @@
       }
 
       .popup-content {
-        background: rgba(0, 255, 0, 0.1);
+        background: rgba(255, 215, 0, 0.1);
         padding: 1rem;
-        border: 1px solid rgba(0, 255, 0, 0.3);
+        border: 1px solid rgba(255, 215, 0, 0.3);
         text-align: center;
-        color: #0f0;
+        color: #FFD700;
         font-family: monospace;
         display: flex;
         flex-direction: column;
@@ -131,7 +131,7 @@
       .intro-panel h1 {
         font-size: 2rem;
         margin: 0;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
       }
 
       .intro-panel p {
@@ -143,8 +143,8 @@
       .scrambled-text {
         font-family: monospace;
         font-size: 1.5rem;
-        color: rgba(255, 255, 255, 0.7);
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        color: rgba(255, 215, 0, 0.7);
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         letter-spacing: 0.2rem;
         position: relative;
         margin-top: 1rem;
@@ -157,9 +157,9 @@
       }
 
       .connect-button {
-        background: rgba(0, 255, 0, 0.2);
-        border: 2px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 2px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 12px 24px;
         cursor: pointer;
         font-size: 1.2rem;
@@ -175,9 +175,9 @@
       }
 
       .connect-button:hover {
-        background: rgba(0, 255, 0, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: translateY(-2px);
-        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
       }
 
       .connect-button:active {
@@ -198,9 +198,9 @@
       #sound-control,
       .contract-address-btn,
       .social-button {
-        background: rgba(0, 255, 0, 0.2);
-        border: 1px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 10px 10px;
         cursor: pointer;
         font-size: 1.2rem;
@@ -212,14 +212,14 @@
       #sound-control:hover,
       .contract-address-btn:hover,
       .social-button:hover {
-        background: rgba(0, 255, 0, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: translateY(-2px);
       }
 
       #centerImage {
         position: fixed;
         left: 50%;
-        top: 50%;
+        top: 60%;
         transform: translate(-50%, -50%);
         width: 300px;
         height: auto;
@@ -269,9 +269,9 @@
       }
 
       .action-button {
-        background: rgba(0, 255, 0, 0.2);
-        border: 2px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 2px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 12px 24px;
         cursor: pointer;
         font-size: 1.2rem;
@@ -283,9 +283,9 @@
       }
 
       .action-button:hover {
-        background: rgba(0, 255, 0, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: translateY(-2px);
-        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
       }
 
      
@@ -296,7 +296,7 @@
         transform: translateX(-50%);
         width: 600px;
         background: rgba(0, 0, 0, 0.9);
-        border: 2px solid rgba(0, 255, 0, 0.5);
+        border: 2px solid rgba(255, 215, 0, 0.5);
         border-radius: 10px;
         display: none;
         flex-direction: column;
@@ -305,7 +305,7 @@
       }
 
       .chat-header {
-        background: rgba(0, 255, 0, 0.2);
+        background: rgba(255, 215, 0, 0.2);
         padding: 10px;
         display: flex;
         justify-content: space-between;
@@ -315,7 +315,7 @@
 
       .chat-header h3 {
         margin: 0;
-        color: #0f0;
+        color: #FFD700;
         font-family: monospace;
       }
 
@@ -328,7 +328,7 @@
       .close-btn {
         background: none;
         border: none;
-        color: #0f0;
+        color: #FFD700;
         cursor: pointer;
         font-size: 1.2rem;
         padding: 0 5px;
@@ -351,14 +351,14 @@
       }
 
       .user-message {
-        background: rgba(0, 255, 0, 0.1);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.1);
+        color: #FFD700;
         align-self: flex-end;
       }
 
       .ai-message {
-        background: rgba(0, 255, 0, 0.2);
-        color: #fff;
+        background: rgba(255, 215, 0, 0.2);
+        color: #FFD700;
         align-self: flex-start;
       }
 
@@ -366,23 +366,23 @@
         display: flex;
         padding: 10px;
         gap: 10px;
-        border-top: 1px solid rgba(0, 255, 0, 0.3);
+        border-top: 1px solid rgba(255, 215, 0, 0.3);
       }
 
       .chat-input input {
         flex: 1;
         background: rgba(0, 0, 0, 0.8);
-        border: 1px solid rgba(0, 255, 0, 0.3);
+        border: 1px solid rgba(255, 215, 0, 0.3);
         padding: 8px;
-        color: #0f0;
+        color: #FFD700;
         font-family: monospace;
         border-radius: 5px;
       }
 
       .chat-input button {
-        background: rgba(0, 255, 0, 0.2);
-        border: 1px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 8px 15px;
         cursor: pointer;
         border-radius: 5px;
@@ -400,10 +400,10 @@
         top: calc(50% + 170px);
         transform: translateX(-50%);
         font-size: 2rem;
-        color: #0f0;
+        color: #FFD700;
         z-index: 2;
         display: none;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         animation: pulse 1s infinite;
       }
 
@@ -441,7 +441,7 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(0, 255, 0, 0.2),
+          rgba(255, 215, 0, 0.2),
           transparent
         );
         animation: cyber-scan 1.5s linear infinite;
@@ -450,10 +450,10 @@
       .cyber-loading::after {
         content: "Processing request...";
         font-family: "monospace";
-        color: #0f0;
+        color: #FFD700;
         text-align: center;
         display: block;
-        text-shadow: 0 0 10px #0f0;
+        text-shadow: 0 0 10px #FFD700;
         animation: cyber-text 1s linear infinite;
       }
 
@@ -479,9 +479,9 @@
       .contract-address-btn {
         display: block;
         margin: 10px auto; 
-        background: rgba(0, 255, 0, 0.2);
-        border: 1px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 4px 8px;
         cursor: pointer;
         font-size: 1.2rem;
@@ -492,14 +492,14 @@
       }
 
       .contract-address-btn:hover {
-        background: rgba(0, 255, 0, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: translateY(-2px);
       }
 
       .theme-button {
-        background: rgba(0, 255, 0, 0.2);
-        border: 1px solid rgba(0, 255, 0, 0.5);
-        color: #0f0;
+        background: rgba(255, 215, 0, 0.2);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        color: #FFD700;
         padding: 10px 20px;
         cursor: pointer;
         font-size: 1.2rem;
@@ -509,7 +509,7 @@
       }
 
       .theme-button:hover {
-        background: rgba(0, 255, 0, 0.3);
+        background: rgba(255, 215, 0, 0.3);
         transform: translateY(-2px);
       }
 
@@ -597,7 +597,7 @@
     <div class="popup-overlay" id="popup">
       <div class="popup-content">
         <div class="intro-panel">
-          <h1>Welcome to the Void</h1>
+          <h1>Welcome to the Bonk Universe</h1>
           <p>You've discovered a gateway to another dimension.</p>
           <p><strong>Click the Fytch to begin your journey.</strong></p>
           <div class="scrambled-text"></div>
@@ -612,6 +612,8 @@
           <button class="contract-address-btn" onclick="window.open('https://google.com', '_blank')">
             CA: -
           </button>
+          <p id="copyText" style="cursor: pointer; color: #FFD700; margin-top: 10px;">-</p>
+          <div id="notification" style="display: none; color: #FFD700; margin-top: 10px;">Coppied!</div>
         </div>
       </div>
     </div>
@@ -648,7 +650,7 @@
           </p>
           <div class="scrambled-text"></div>
           <div class="action-buttons-container">
-            <button class="action-button">Chat</button>
+            <button class="action-button" hidden>Chat</button>
             <button class="action-button">Talk</button>
           </div>
         </div>
@@ -727,7 +729,7 @@
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
           particles.forEach((p, index) => {
-            p.distance -= p.speed * particleSpeedFactor; // Adjust speed with factor
+            p.distance -= p.speed * particleSpeedFactor;
 
             if (p.distance < 50) {
               p.distance = p.maxDist;
@@ -742,8 +744,8 @@
             const y = canvas.height / 2 + Math.sin(p.angle) * p.distance;
 
             const opacity = Math.min(1, p.distance / (p.maxDist * 0.3));
-            const particleColor = `rgba(0, 255, 0, ${opacity * 0.8})`;
-            const glowColor = `rgba(0, 255, 0, ${opacity * 0.1})`;
+            const particleColor = `rgba(255, 215, 0, ${opacity * 0.8})`;
+            const glowColor = `rgba(255, 215, 0, ${opacity * 0.1})`;
 
             ctx.beginPath();
             ctx.arc(x, y, p.size, 0, Math.PI * 2);
@@ -778,7 +780,7 @@
         cursor.style.display = "block";
         cursor.style.left = e.clientX + "px";
         cursor.style.top = e.clientY + "px";
-        cursor.textContent = "Click to begin journey";
+        cursor.textContent = "CLICK";
       });
 
       wormholeButton.addEventListener("mouseleave", () => {
@@ -1127,13 +1129,13 @@
       // Configure button styles
       const buttonConfig = {
         idle: {
-          color: "#0f0",
+          color: "#FFD700",
           type: "round",
           icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg",
           location: "bottom-right",
         },
         loading: {
-          color: "#0f0",
+          color: "#FFD700",
           type: "round",
           icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg",
           location: "bottom-right",
@@ -1198,13 +1200,27 @@
         // Create a new paragraph for the additional text
         const adventureText = document.createElement("p");
         adventureText.textContent = "Your journey begins NOW!";
-        adventureText.style.color = "#0f0";
+        adventureText.style.color = "#FFD700";
         adventureText.style.fontWeight = "bold";
         adventureText.style.fontSize = "1rem";
         adventureText.style.textAlign = "center";
 
         // Insert the new paragraph below the existing text
         journeyText.parentNode.insertBefore(adventureText, journeyText.nextSibling);
+      });
+
+      // Add this script to handle the copy functionality
+      document.getElementById("copyText").addEventListener("click", async function () {
+        try {
+          await navigator.clipboard.writeText(this.textContent);
+          const notification = document.getElementById("notification");
+          notification.style.display = "block";
+          setTimeout(() => {
+            notification.style.display = "none";
+          }, 500); // Hide notification after 2 seconds
+        } catch (err) {
+          console.error("Failed to copy text:", err);
+        }
       });
     </script>
   </body>
